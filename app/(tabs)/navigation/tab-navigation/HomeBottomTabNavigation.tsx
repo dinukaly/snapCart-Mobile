@@ -6,7 +6,7 @@ import HomeProductScreen from "@/components/ui/screen/home/HomeProductScreen";
 import { COLORS } from "@/constants/ColorPallet";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "react-native";
+import { Image, TouchableOpacity,Text } from "react-native";
 
 const logo = require('../../../../assets/logo/logo.jpg');
 const Tab = createBottomTabNavigator();
@@ -48,6 +48,18 @@ export default function HomeBottomTabNavigation({ navigation }: any) {
                         />
                     ),
                     headerTitle:'',
+                    headerRight: () => (
+                        <TouchableOpacity
+                        style={{
+                            marginRight: 10,
+                            padding: 10,
+                            borderRadius: 10,
+                            backgroundColor: COLORS.lighBlue
+                        }}
+                        >
+                            <Text style={{color: COLORS.background}}>Admin</Text>
+                        </TouchableOpacity>
+                    )
                 }}
             />
 
