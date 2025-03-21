@@ -5,7 +5,7 @@ import HomePageScreen from "@/components/ui/screen/home/HomePageScreen";
 import HomeProductScreen from "@/components/ui/screen/home/HomeProductScreen";
 import { COLORS } from "@/constants/ColorPallet";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
+import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 export default function HomeBottomTabNavigation({navigation}:any) {
@@ -17,7 +17,7 @@ export default function HomeBottomTabNavigation({navigation}:any) {
                 let iconName;
                 if(route.name === 'Menu'){
                     iconName = focused ? 'menu' : 'menu-outline';
-                }else if(route.name === 'Cart'){
+                }else if(route.name === 'Cart'){ 
                     iconName = focused ? 'cart' : 'cart-outline';
                 }else if(route.name === 'Home'){
                     iconName = focused ? 'home' : 'home-outline';
