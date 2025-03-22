@@ -50,6 +50,7 @@ export default function HomeBottomTabNavigation({ navigation }: any) {
                     headerTitle:'',
                     headerRight: () => (
                         <TouchableOpacity
+                        onPress={() => navigation.navigate('Login')}
                         style={{
                             marginRight: 10,
                             padding: 10,
