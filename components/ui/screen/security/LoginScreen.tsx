@@ -2,7 +2,7 @@ import { COLORS } from "@/constants/ColorPallet";
 import { useState } from "react";
 import { Text, View, StyleSheet, Image, ViewComponent, TouchableOpacity } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { TextInput } from "react-native-paper";
+import { Icon, TextInput } from "react-native-paper";
 const logo = require('../../../../assets/logo/logo.jpg');
 
 export default function LoginScreen() {
@@ -38,6 +38,29 @@ export default function LoginScreen() {
                 <TouchableOpacity style={styles.forgotPassword}>
                     <Text style={styles.forgotPasswordText}>Forgot Password</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={styles.loginbtn}>
+                    <Text style={styles.loginbtnText}>Login</Text>
+                </TouchableOpacity>
+                <Text style={styles.or}>OR</Text>
+                <View style={styles.socialLoginWrapper}>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'google'} color={COLORS.background}></Icon>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'facebook'} color={COLORS.background}></Icon>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'apple'} color={COLORS.background}></Icon>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.iconOuter}>
+                        <Icon size={20} source={'twitter'} color={COLORS.background}></Icon>
+                    </TouchableOpacity>
+                
+                </View>
+                //object destructure(rest operator)
+                <TouchableOpacity style={{...styles.loginbtn,backgroundColor:COLORS.darkGray}}>
+                    <Text style={styles.loginbtnText}>Register With Email </Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     )
@@ -71,6 +94,36 @@ const styles = StyleSheet.create({
     forgotPasswordText: {
         color: COLORS.lighBlue,
         textDecorationLine: 'underline'
+    },
+    loginbtn: {
+        marginTop: 20,
+        backgroundColor: COLORS.lighBlue,
+        padding: 10,
+        alignItems: 'center',
+        borderRadius: 10
+    },
+    loginbtnText: {
+        color: COLORS.background
+    },
+    or:{
+        marginTop: 20,
+        textAlign: 'center',
+        color: COLORS.darkGray
+    },
+    socialLoginWrapper:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 20
+    },
+    iconOuter:{
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: COLORS.lighBlue,
+        marginHorizontal: 10,
+        color: COLORS.background
+    },
+    iconStyles: {
+        color: COLORS.background
     }
 
 });
