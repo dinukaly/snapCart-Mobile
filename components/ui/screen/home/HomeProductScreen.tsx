@@ -1,17 +1,25 @@
+import { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
+import { Searchbar } from "react-native-paper";
+import DisplayTypeWidget from "../shared/DisplayTypeWidget";
 
 export default function HomeProductScreen() {
-    return(
+    const [searchQuery,setSearchQuery] = useState('');
+    return (
         <View style={styles.container}>
-            <Text>Home product screen</Text>
+            <Searchbar
+                placeholder="Search"
+                onChangeText={setSearchQuery}
+                value={searchQuery}
+            />
+            <DisplayTypeWidget></DisplayTypeWidget>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: 10
     }
 });
