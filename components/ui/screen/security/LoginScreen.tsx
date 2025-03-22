@@ -57,7 +57,7 @@ export default function LoginScreen() {
                     </TouchableOpacity>
                 
                 </View>
-                //object destructure(rest operator)
+                {/* //object destructure(rest operator) */}
                 <TouchableOpacity style={{...styles.loginbtn,backgroundColor:COLORS.darkGray}}>
                     <Text style={styles.loginbtnText}>Register With Email </Text>
                 </TouchableOpacity>
