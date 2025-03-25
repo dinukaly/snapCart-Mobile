@@ -7,6 +7,7 @@ export const COLORS = {
     darkGray: "#333333",
     lightGray: "#CCCCCC",
     lighBlue: "#00BFFF",
+    lightGray2: "#F2F2F2",
   } as const;
 
   export type ColorPallet = keyof typeof COLORS;
