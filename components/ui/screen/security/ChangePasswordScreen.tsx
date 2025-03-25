@@ -5,10 +5,12 @@ import { ScrollView } from "react-native-gesture-handler";
 import { Icon, TextInput } from "react-native-paper";
 const logo = require('../../../../assets/logo/logo.jpg');
 
-export default function LoginScreen({navigation}:any) {
+export default function ChangePasswordScreen({navigation}:any) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const[confirmPassword,setCofirmPassword] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(true);
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.logoWrapper}>
@@ -17,15 +19,7 @@ export default function LoginScreen({navigation}:any) {
             <View style={styles.inputOuter}>
                 <View style={styles.formGroup}>
                     <TextInput
-                        label="Enter Email"
-                        value={email}
-                        onChangeText={text => setEmail(text)}
-                        mode="outlined"
-                    />
-                </View>
-                <View style={styles.formGroup}>
-                    <TextInput
-                        label="Enter Password"
+                        label="Enter New Password"
                         secureTextEntry={passwordVisible}
                         value={password}
                         onChangeText={text => setPassword(text)}
@@ -35,36 +29,24 @@ export default function LoginScreen({navigation}:any) {
                             size={20} />}
                     />
                 </View>
-                <TouchableOpacity
-                onPress={()=>navigation.navigate('ResetPasswordOtp')}
-                style={styles.forgotPassword}>
-                    <Text style={styles.forgotPasswordText}>Forgot Password</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.loginbtn}>
-                    <Text style={styles.loginbtnText}>Login</Text>
-                </TouchableOpacity>
-                <Text style={styles.or}>OR</Text>
-                <View style={styles.socialLoginWrapper}>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'google'} color={COLORS.background}></Icon>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'facebook'} color={COLORS.background}></Icon>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'apple'} color={COLORS.background}></Icon>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.iconOuter}>
-                        <Icon size={20} source={'twitter'} color={COLORS.background}></Icon>
-                    </TouchableOpacity>
-                
+                <View style={styles.formGroup}>
+                    <TextInput
+                        label="ConfirmPassword"
+                        secureTextEntry={passwordVisible}
+                        value={confirmPassword}
+                        onChangeText={text => setCofirmPassword(text)}
+                        mode="outlined"
+                        right={<TextInput.Icon icon={passwordVisible ? 'eye-off' : 'eye'}
+                            onPress={() => setPasswordVisible(!passwordVisible)}
+                            size={20} />}
+                    />
                 </View>
-                {/* //object destructure(rest operator) */}
                 <TouchableOpacity
-                onPress={()=>navigation.navigate('Signup')}
-                style={{...styles.loginbtn,backgroundColor:COLORS.darkGray}}>
-                    <Text style={styles.loginbtnText}>Register With Email </Text>
+                onPress={() => { navigation.navigate('Login') }}
+                style={styles.loginbtn}>
+                    <Text style={styles.loginbtnText}>Reset Password</Text>
                 </TouchableOpacity>
+    
             </View>
         </ScrollView>
     )

@@ -1,0 +1,94 @@
+import { COLORS } from "@/constants/ColorPallet";
+import { useState } from "react";
+import { Text, View, StyleSheet, Image, ViewComponent, TouchableOpacity } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import { Icon, TextInput } from "react-native-paper";
+const logo = require('../../../../assets/logo/logo.jpg');
+
+export default function ResetPasswordVerifyEmailScreen({ navigation }: any) {
+    const [otp, setOtp] = useState('');
+    return (
+        <ScrollView style={styles.container}>
+            <View style={styles.logoWrapper}>
+                <Image source={logo} style={styles.logo} resizeMode={'contain'}></Image>
+            </View>
+            <View style={styles.inputOuter}>
+                <View style={styles.formGroup}>
+                    <TextInput
+                        label="Enter OTP"
+                        value={otp}
+                        onChangeText={text => setOtp(text)}
+                        mode="outlined"
+                        keyboardType="numeric"
+                    />
+                </View>
+                <TouchableOpacity
+                    style={styles.forgotPassword}>
+                    <Text style={styles.forgotPasswordText}>(30)Resend Email</Text>
+                </TouchableOpacity> 
+                <TouchableOpacity
+                onPress={() => { navigation.navigate('ChangePassword') }} style={styles.loginbtn}>
+                    <Text style={styles.loginbtnText}>Verify</Text>
+                </TouchableOpacity>
+
+            </View>
+        </ScrollView>
+    )
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: COLORS.background,
+    },
+    logoWrapper: {
+        alignItems: 'center',
+        marginTop: 20
+    },
+    logo: {
+        width: 200,
+        height: 60
+    },
+    inputOuter: {
+        width: '90%',
+        marginTop: 20,
+        marginLeft: '5%',
+    },
+    formGroup: {
+        marginBottom: 10
+    },
+    forgotPassword: {
+        alignItems: 'flex-end',
+        marginTop: 10,
+    },
+    forgotPasswordText: {
+        color: COLORS.lighBlue,
+        textDecorationLine: 'underline'
+    },
+    loginbtn: {
+        marginTop: 20,
+        backgroundColor: COLORS.darkGray,
+        padding: 10,
+        alignItems: 'center',
+        borderRadius: 10
+    },
+    loginbtnText: {
+        color: COLORS.background
+    },
+    socialLoginWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 20
+    },
+    iconOuter: {
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: COLORS.lighBlue,
+        marginHorizontal: 10,
+        color: COLORS.background
+    },
+    iconStyles: {
+        color: COLORS.background
+    }
+
+});
