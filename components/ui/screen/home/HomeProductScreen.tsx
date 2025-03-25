@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { Searchbar } from "react-native-paper";
 import DisplayTypeWidget from "../shared/DisplayTypeWidget";
+import ProductGridViewWidget from "./widget/ProductGridViewWidget";
+import ProductListViewWidget from "./widget/ProductListViewWidget";
 
-export default function HomeProductScreen() {
+export default function HomeProductScreen({navigation}:any) {
     const [searchQuery,setSearchQuery] = useState('');
+    const [isGridEnabled,setIsGridEnabled] = useState(true);
+    const manageGridView = ({state}:any) => {
+        setIsGridEnabled(state);
+    }
     return (
         <View style={styles.container}>
             <Searchbar
@@ -12,7 +18,21 @@ export default function HomeProductScreen() {
                 onChangeText={setSearchQuery}
                 value={searchQuery}
             />
-            <DisplayTypeWidget></DisplayTypeWidget>
+            <DisplayTypeWidget callBack={manageGridView}/>
+            {isGridEnabled?(
+                 <ScrollView
+                 showsVerticalScrollIndicator={false}>
+                     <ProductGridViewWidget navigation={navigation}/>
+              
+                 </ScrollView>
+            ):(
+                <ScrollView
+                showsVerticalScrollIndicator={false}>
+                    <ProductListViewWidget navigation={navigation}/>
+                 
+                </ScrollView>
+            )}
+                
         </View>
     )
 }
