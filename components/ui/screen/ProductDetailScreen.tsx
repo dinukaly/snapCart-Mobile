@@ -27,9 +27,7 @@ export default function ProductDetailScreen() {
                 </View>
 
                 <View style={styles.prodcutImageList}
-                 
                 >
-
                     {productImages.map((item, index)=>(
                         <TouchableOpacity  key={index} style={{width:80, height:60, borderWidth:1, borderRadius:5}}
                         onPress={() => setPrimaryImage(item.uri)}
@@ -48,7 +46,6 @@ export default function ProductDetailScreen() {
                 <Text style={{color:COLORS.primary, marginTop:10,fontSize:15, marginRight:10}}>250 UAD</Text>
                 <Text style={{color:COLORS.primary, marginTop:10,fontSize:15 , textDecorationLine:'line-through'}}>250 UAD</Text>
                 </View>
-               
             </View>
             <View style={{marginTop:20, flexDirection:'row', justifyContent:'flex-end'}}>
             <TouchableOpacity style={{...styles.btn,backgroundColor:COLORS.primary,marginRight:10}}>
@@ -131,11 +128,6 @@ const styles = StyleSheet.create({
     top: {
         width: '100%',
 
-    },
-    newContainer: {
-        flexDirection: 'row',
-        flex: 1,
-        justifyContent: "space-evenly"
     },
     container: {
         flex: 1,

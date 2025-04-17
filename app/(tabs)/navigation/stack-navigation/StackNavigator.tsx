@@ -45,7 +45,7 @@ export default function StackNavigator() {
                     options={{ title: 'Settings Screen here' }}
                     component={SettingsScreen} />
                <Stack.Screen name={'Voucher'}
-                    options={{ title: 'Voucher Screen here' }}
+                    options={{ title: 'Voucher Screen here'}}
                     component={VoucherScreen} />
                <Stack.Screen name={'Login'}
                     options={{ title: 'Login here' }}

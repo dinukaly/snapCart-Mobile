@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { Animated, StyleSheet, Text, View, Image } from "react-native";
 import appJson from '../../../app.json'
 export default function SplashScreen({onFinish}:any) {
-    const logo = require('../../../assets/logo/logo.jpg');
+const logo = require('../../../assets/logo/logo.jpg');
 const progress = useRef(new Animated.Value(0)).current
     useEffect(() => {
         Animated.timing(progress,{
